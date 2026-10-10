@@ -1,0 +1,17 @@
+# Create with pr init config, or pr --config /path/to/config.toml init config.
+# Both directory paths are required and configured only in this file.
+# The --provider flag can override the provider setting.
+# Relative paths are resolved from this file's directory; ~/ expands to your home.
+
+grove_dir = "~/.grove"
+data_dir = "~/.local/share/pr"
+# provider = "gitlab" # Optional override: "github" or "gitlab".
+
+# Credentials are only required for the TUI's n and d keys. Keep this file private.
+[slack]
+# token = "your-slack-oauth-token"
+# channel_id = "C0123456789" # Channel receiving the command to Homer.
+# Each {pr_url} is replaced with the selected request's URL. Customize mentions as needed.
+review_message = "<@U07F73SKT0V> review {pr_url} in <#C02NQ0LC8M9>"
+# d uses the same channel_id. Homer releases use its configured release channel.
+deploy_message = "<@U07F73SKT0V> release {pr_url}"

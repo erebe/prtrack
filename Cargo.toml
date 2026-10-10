@@ -1,0 +1,31 @@
+[package]
+name = "pr"
+version = "0.1.0"
+edition = "2024"
+description = "Track GitHub pull requests and GitLab merge requests across repositories and Grove workspaces"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "serde"] }
+dirs = "7.0.0"
+fs2 = "0.4"
+gix = { version = "0.89", default-features = false, features = ["sha1", "sha256"] }
+percent-encoding = "2"
+ratatui = "0.30"
+rayon = "1"
+scopeguard = "1.2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tempfile = "3"
+toml = { version = "1.1", default-features = false, features = ["std", "parse", "serde"] }
+url = "2"
+ureq = { version = "3.4", default-features = false, features = ["rustls", "json"] }
+wait-timeout = "0.2"
+webbrowser = { version = "1", features = ["hardened"] }
+
+
+[profile.release]
+lto = "fat"
+codegen-units = 1
+opt-level = 3
